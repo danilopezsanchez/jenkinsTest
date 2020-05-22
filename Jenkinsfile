@@ -23,7 +23,7 @@ pipeline{
 		}
 		stage('set current kubectl context') {
 			steps{
-				kubectl config use-context arn:aws:eks:us-east-2:223008900821:cluster/prod
+				sh 'kubectl config use-context arn:aws:eks:us-east-2:223008900821:cluster/prod'
 			}
 		}
 		stage('Deploy container') {
