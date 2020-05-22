@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: LoadBalancer
+metadata:
+  name: loadbalancer
+spec:
+  selector:
+    app: controller
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
