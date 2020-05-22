@@ -25,8 +25,7 @@ pipeline{
 			steps{
 				withAWS(region:'us-east-2',credentials:'aws_access_key_id') {
 					sh '''
-					kubectl get pods
-					kubectl config current-context
+					kubectl version
 					kubectl config use-context arn:aws:eks:us-east-2:223008900821:cluster/prod
 					'''
 				}
