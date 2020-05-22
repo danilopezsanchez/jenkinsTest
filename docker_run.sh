@@ -5,7 +5,7 @@
 
 # Step 1:
 # Build image and add a descriptive tag
-docker build --tag=capstoneTest .
+docker build --tag=capstonetest .
 
 # Step 2: 
 # List docker images
@@ -13,4 +13,4 @@ docker image ls
 
 # Step 3: 
 # Run flask app
-docker run --name serverUp -d -p 8000:80 capstoneTest
+docker run --name serverUp -d -p 8000:80 capstonetest
