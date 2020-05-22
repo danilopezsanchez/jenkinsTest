@@ -12,7 +12,7 @@ dockerpath=overrider/capstonetest
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
 docker login
-docker tag project $dockerpath
+docker tag capstonetest $dockerpath
 
 # Step 3:
 # Push image to a docker repository
