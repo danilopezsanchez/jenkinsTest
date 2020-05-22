@@ -6,7 +6,7 @@
 # Step 1:
 # Create dockerpath
 # dockerpath=<your docker ID/path>
-dockerpath=overrider/capstoneTest
+dockerpath=overrider/capstonetest
 
 # Step 2:  
 # Authenticate & tag
