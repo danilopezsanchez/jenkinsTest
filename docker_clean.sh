@@ -2,4 +2,4 @@
 dockerpath=overrider/capstonetest
 
 docker rmi capstonetest
-docker rmi dockerpath
+docker rmi $dockerpath
