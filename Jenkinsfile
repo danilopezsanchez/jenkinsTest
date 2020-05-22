@@ -31,6 +31,11 @@ pipeline{
 				sh 'echo "Pending deploy"'
 			}
 		}
+		stage('Clean') {
+			steps{
+				sh './docker_clean.sh'
+			}
+		}
 	}
 }
 

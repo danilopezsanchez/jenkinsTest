@@ -15,5 +15,4 @@ docker image ls
 # Run flask app
 docker stop serverUp
 docker rm serverUp
-docker rmi capstonetest
 docker run --name serverUp -d -p 8000:80 capstonetest
