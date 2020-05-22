@@ -23,12 +23,12 @@ pipeline{
 		}
 		stage('set current kubectl context') {
 			steps{
-				sh 'echo "Pending context"'
+				kubectl config use-context arn:aws:eks:us-east-2:223008900821:cluster/prod
 			}
 		}
 		stage('Deploy container') {
 			steps{
-				sh 'echo "Pending deploy"'
+				sh './kubernetes_run.sh'
 			}
 		}
 		stage('Clean') {
