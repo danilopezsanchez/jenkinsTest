@@ -11,7 +11,7 @@ dockerpath=overrider/capstonetest
 # Step 2:  
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
-docker login -u $DOCKER_USER $DOCKER_PASSWORD
+docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 docker tag capstonetest $dockerpath
 
 # Step 3:
