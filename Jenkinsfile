@@ -21,7 +21,7 @@ pipeline{
 			sh 'echo "Pending context"'
 		}
 		stage('Deploy container') {
-			Pending deploy
+			sh 'echo "Pending deploy"'
 		}
 	}
 }
