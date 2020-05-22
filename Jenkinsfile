@@ -24,7 +24,7 @@ pipeline{
 		stage('set current kubectl context') {
 			steps{
 				withAWS(region:'us-east-2',credentials:'aws_access_key_id') {
-					sh 'kubectl config use-context arn:aws:eks:us-east-2:223008900821:cluster/prod'
+					//sh 'kubectl config use-context arn:aws:eks:us-east-2:223008900821:cluster/prod'
 				}
 			}
 		}
