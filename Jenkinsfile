@@ -11,17 +11,25 @@ pipeline{
 			}
 		}
 		stage('Build image') {
-			sh 'echo "Building image"'
-			sh './docker_run.sh'
+			steps{
+				sh 'echo "Building image"'
+				sh './docker_run.sh'
+			}
 		}
 		stage('Push image') {
-			sh './docker_upload.sh'
+			steps{
+				sh './docker_upload.sh'
+			}
 		}
 		stage('set current kubectl context') {
-			sh 'echo "Pending context"'
+			steps{
+				sh 'echo "Pending context"'
+			}
 		}
 		stage('Deploy container') {
-			sh 'echo "Pending deploy"'
+			steps{
+				sh 'echo "Pending deploy"'
+			}
 		}
 	}
 }
