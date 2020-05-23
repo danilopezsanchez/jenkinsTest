@@ -20,7 +20,7 @@ pipeline{
 			steps{
 				withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]){
 					sh 'echo "$DOCKER_USERNAME and $DOCKER_PASSWORD"'
-					docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+					sh 'docker login -u $DOCKER_USER -p $DOCKER_PASSWORD'
 					sh './docker_upload.sh'
 				}
 			}
