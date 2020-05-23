@@ -33,16 +33,14 @@ pipeline{
 				}
 			}
 		}
-		stage('Deploy container') {
+		stage('Deploy controller') {
 			steps{
-				//sh 'kubectl apply -f ./controller.yaml'
-				sh 'echo "Deploy container"'
+				sh 'kubectl apply -f ./controller.yaml'
 			}
 		}
 		stage('Create services') {
 			steps{
-				//sh 'kubectl apply -f ./service.yaml'
-				sh 'echo "Create service"'
+				sh 'kubectl apply -f ./service.yaml'
 			}
 		}
 		stage('Clean') {
