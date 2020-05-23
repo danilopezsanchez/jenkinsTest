@@ -44,6 +44,8 @@ pipeline{
 			steps{
 				withAWS(region:'us-east-2',credentials:'aws_access_key_id') {
 					sh 'kubectl apply -f ./service.yaml'
+					sh 'kubectl describe services example-service'
+
 				}
 			}
 		}
