@@ -18,13 +18,16 @@ pipeline{
 		}
 		stage('Push image') {
 			steps{
-				sh './docker_upload.sh'
+				withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]){
+					sh './docker_upload.sh'
+				}
 			}
 		}
 		stage('set current kubectl context') {
 			steps{
 				withAWS(region:'us-east-2',credentials:'aws_access_key_id') {
 					sh '''
+					aws eks --region us-east-2 update-kubeconfig --name prod
 					kubectl config use-context arn:aws:eks:us-east-2:223008900821:cluster/prod
 					'''
 				}
@@ -32,12 +35,12 @@ pipeline{
 		}
 		stage('Deploy container') {
 			steps{
-				sh 'kubectl apply -f ./controller.yaml'
+				//sh 'kubectl apply -f ./controller.yaml'
 			}
 		}
 		stage('Create services') {
 			steps{
-				sh 'kubectl apply -f ./service.yaml'
+				//sh 'kubectl apply -f ./service.yaml'
 			}
 		}
 		stage('Clean') {
