@@ -19,9 +19,6 @@ pipeline{
 		stage('Push image') {
 			steps{
 				withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-				//withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]){
-					sh 'echo "$DOCKER_USERNAME and $DOCKER_PASSWORD"'
-					sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
 					sh './docker_upload.sh'
 				}
 			}
