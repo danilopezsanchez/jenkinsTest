@@ -35,12 +35,16 @@ pipeline{
 		}
 		stage('Deploy controller') {
 			steps{
-				sh 'kubectl apply -f ./controller.yaml'
+				withAWS(region:'us-east-2',credentials:'aws_access_key_id') {
+					sh 'kubectl apply -f ./controller.yaml'
+				}
 			}
 		}
 		stage('Create services') {
 			steps{
-				sh 'kubectl apply -f ./service.yaml'
+				withAWS(region:'us-east-2',credentials:'aws_access_key_id') {
+					sh 'kubectl apply -f ./service.yaml'
+				}
 			}
 		}
 		stage('Clean') {
