@@ -20,7 +20,10 @@ spec:
             path: /
             port: 8080
   strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 50%
-      maxUnavailable: 25%
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 50%
+    maxUnavailable: 25%
+  selector:
+    matchLabels:
+      app: capstonetest
