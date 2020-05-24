@@ -58,11 +58,13 @@ pipeline{
 						kubectl describe services loadbalancer
 						echo "--------------------------------------"
 						kubectl create deployment kubernetes-capstonetest --image=overrider/capstonetest
+						kubectl expose deployment kubernetes-capstonetest --type=LoadBalancer --name=service-capstonetest
 						echo "--------------------------------------"
 						kubectl get deployments
-
+						echo "--------------------------------------"
+						kubectl describe services
 					'''
-					//kubectl expose deployment kubernetes-capstonetest --type=LoadBalancer --name=service-capstonetest
+					//
 				}
 			}
 		}
