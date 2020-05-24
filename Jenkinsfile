@@ -43,7 +43,7 @@ pipeline{
 		stage('Deploy green controller') {
 			steps{
 				withAWS(region:'us-east-2',credentials:'aws_access_key_id') {
-					sh 'kubectl apply -f ./blue-controller.yaml'
+					sh 'kubectl apply -f ./green-controller.yaml'
 				}
 			}
 		}
