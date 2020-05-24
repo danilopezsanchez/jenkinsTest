@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: capstonetest
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: capstonetest
+        role: rolling-update
+    spec:
+      containers:
+      - name: capstonetest
+        image: overrider/capstonetest:1.0
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 50%
+      maxUnavailable: 25%

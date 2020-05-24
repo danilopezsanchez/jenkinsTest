@@ -36,41 +36,9 @@ pipeline{
 		stage('Deploy blue controller') {
 			steps{
 				withAWS(region:'us-east-2',credentials:'aws_access_key_id') {
-					sh 'kubectl apply -f ./blue-controller.yaml'
-				}
-			}
-		}
-		stage('Deploy green controller') {
-			steps{
-				withAWS(region:'us-east-2',credentials:'aws_access_key_id') {
-					sh 'kubectl apply -f ./green-controller.yaml'
-				}
-			}
-		}
-		stage('Create loadbalancer service') {
-			steps{
-				withAWS(region:'us-east-2',credentials:'aws_access_key_id') {
-					sh 'kubectl apply -f ./service.yaml'
-					//sh 'kubectl describe services loadbalancer'
-					/*sh '''
-						kubectl get pods
-						echo "--------------------------------------"
-						kubectl describe pods
-						echo "--------------------------------------"
-						kubectl get services
-						echo "--------------------------------------"
-						kubectl describe services
-						echo "--------------------------------------"
-						kubectl describe services loadbalancer
-						echo "--------------------------------------"
-						kubectl create deployment kubernetes-capstonetest --image=overrider/capstonetest
-						kubectl expose deployment kubernetes-capstonetest --type=LoadBalancer --name=service-capstonetest
-						echo "--------------------------------------"
-						kubectl get deployments
-						echo "--------------------------------------"
-						kubectl describe services
-					'''
-					//*/
+					sh 'kubectl apply -f ./deployment.yaml'
+					sh 'kubectl rollout status deployment capstonetest'
+					sh 'kubectl get deployment nginx'
 				}
 			}
 		}
