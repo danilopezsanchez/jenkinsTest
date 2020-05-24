@@ -56,6 +56,8 @@ pipeline{
 						kubectl describe services
 						echo "--------------------------------------"
 						kubectl describe services loadbalancer
+						echo "--------------------------------------"
+						kubectl get deployments
 					'''
 				}
 			}
