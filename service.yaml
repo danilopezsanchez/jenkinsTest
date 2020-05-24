@@ -4,7 +4,7 @@ metadata:
   name: loadbalancer
 spec:
   selector:
-    app: controller
+    app: blue-controller
   ports:
     - port: 80
       targetPort: 8000

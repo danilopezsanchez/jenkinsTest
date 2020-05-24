@@ -37,7 +37,6 @@ pipeline{
 			steps{
 				withAWS(region:'us-east-2',credentials:'aws_access_key_id') {
 					sh 'kubectl apply -f ./controller.yaml'
-					//sh 'kubectl run blueimage --image=overrider/capstonetest:$BUILD_ID --port=80'
 				}
 			}
 		}
@@ -46,7 +45,7 @@ pipeline{
 				withAWS(region:'us-east-2',credentials:'aws_access_key_id') {
 					sh 'kubectl apply -f ./service.yaml'
 					//sh 'kubectl describe services loadbalancer'
-					sh '''
+					/*sh '''
 						kubectl get pods
 						echo "--------------------------------------"
 						kubectl describe pods
@@ -64,7 +63,7 @@ pipeline{
 						echo "--------------------------------------"
 						kubectl describe services
 					'''
-					//
+					//*/
 				}
 			}
 		}

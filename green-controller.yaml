@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: green-controller
+spec:
+  replicas: 1
+  selector:
+    app: green-controller
+  template:
+    metadata:
+      name: green-controller
+      labels:
+        app: green-controller
+    spec:
+      containers:
+      - name: green-controller
+        image: overrider/capstonetest
+        ports:
+        - containerPort: 80
