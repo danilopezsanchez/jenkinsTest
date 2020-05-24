@@ -48,13 +48,13 @@ pipeline{
 					//sh 'kubectl describe services loadbalancer'
 					sh '''
 						kubectl get pods
-						--------------------------------------
+						echo "--------------------------------------"
 						kubectl describe pods
-						--------------------------------------
+						echo "--------------------------------------"
 						kubectl get services
-						--------------------------------------
+						echo "--------------------------------------"
 						kubectl describe services
-						--------------------------------------
+						echo "--------------------------------------"
 						kubectl describe services loadbalancer
 					'''
 				}
